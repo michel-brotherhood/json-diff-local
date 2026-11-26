@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSON Diff Local</title>
+  <style>
+    :root { font: 16px system-ui,sans-serif; color-scheme: light dark }
+    body { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; line-height: 1.5 }
+    h1 { margin-bottom: .25rem } .note { color: #666; margin-top: 0 }
+    .fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1rem }
+    label { display: grid; gap: .4rem; font-weight: 600 }
+    textarea { width: 100%; min-height: 250px; box-sizing: border-box; padding: 1rem; font: 14px/1.5 ui-monospace,monospace; resize: vertical }
+    button { margin-top: 1rem; padding: .7rem 1.2rem; cursor: pointer; font: inherit }
+    li { margin: .8rem 0; overflow-wrap: anywhere } pre { overflow-x: auto; padding: .8rem; background: #8882; font-size: 13px }
+    @media (prefers-color-scheme: dark) { .note { color: #aaa } }
+  </style>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main>
+    <h1>JSON Diff Local</h1>
+    <p class="note">Compare estruturas JSON no próprio navegador. Os dados não são enviados a um servidor.</p>
+    <form>
+      <div class="fields">
+        <label>Antes <textarea name="before" spellcheck="false" required>{"nome":"Ana","ativo":true}</textarea></label>
+        <label>Depois <textarea name="after" spellcheck="false" required>{"nome":"Ana","ativo":false}</textarea></label>
+      </div>
+      <button type="submit">Comparar</button>
+    </form>
+    <section aria-live="polite"><h2 id="status">Resultado</h2><ul id="output"></ul></section>
+  </main>
+</body>
+</html>
